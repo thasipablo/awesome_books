@@ -36,13 +36,6 @@
 </details>
 
 <details>
-  <summary>Style</summary>
-  <ul>
-    <li><a href="https://www.w3schools.com/css/">CSS</a></li>
-  </ul>
-</details>
-
-<details>
   <summary>Scripting</summary>
   <ul>
     <li><a href="https://www.w3schools.com/js/">JavaScript</a></li>
@@ -77,7 +70,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone git@github.com:thasipablo/around_the_table.git
+  git clone git@github.com:thasipablo/awesome_books.git
   npm init -y
 ```
 
@@ -129,7 +122,7 @@ To run tests, run the following command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/thasipablo/around_the_table/issues).
+Feel free to check the [issues page](https://github.com/thasipablo/awesome_books/issues).
 
 <!-- SUPPORT -->
 
