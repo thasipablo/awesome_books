@@ -13,31 +13,35 @@ const refreshBookCollection = () => {
     bookCard.innerHTML = `
       <div class="title">${book.title}</div>
       <div class="author">${book.author}</div>
-      <button>Remove</button>
+      <button class="remove-btn">Remove</button>
       <hr>
     `;
     booksCollectionTag.appendChild(bookCard);
-    console.log(bookCard);
+    const removeBtn = bookCard.querySelector('.remove-btn');
+    removeBtn.addEventListener('click', removeBook);
   })
 }
 
-// Method to collect the book data from the form
-const collectBook = () => {
-}
+refreshBookCollection();
 
 // Method to add book to the collection
-const addBook = () => {
-  console.log(titleInput, authorTag);
+const addBook = (event) => {
+  event.preventDefault();
   const book = {
     title: titleInput.value,
     author: authorTag.value
   }
-  console.log(book);
   books.push(book);
+  refreshBookCollection();
 }
 
-formTag.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  addBook();
+// Method to remove the book from the collection
+const removeBook = (event) => {
+  const bookTitle = event.target.closest('.book').querySelector('.title').innerText;
+  books = books.filter(book => book.title !== bookTitle);
   refreshBookCollection();
-})
+}
+
+
+// Handle the submit event
+formTag.addEventListener('submit', addBook);
