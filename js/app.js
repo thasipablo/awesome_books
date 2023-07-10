@@ -1,9 +1,4 @@
-let books = [
-  {
-    title: 'The world erth catalog',
-    author: 'Stewart Brand'
-  }
-]
+let books = [];
 
 const formTag = document.querySelector('.form');
 const titleInput = document.querySelector('.title-tag');
