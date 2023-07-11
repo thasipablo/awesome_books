@@ -1,70 +1,78 @@
-const formTag = document.querySelector('.form');
-const titleInput = document.querySelector('.title-tag');
-const authorTag = document.querySelector('.author-tag');
-const booksCollectionTag = document.querySelector('.books-collection');
+// Declare booksCollection as an empty array
+let books = [];
 
-// Retrieve books from local storage or initialize an empty array
-let books = JSON.parse(localStorage.getItem('books')) || [];
-
-// Method to create a book card
-const createBookCard = (book) => {
-  const bookCard = document.createElement('div');
-  bookCard.classList.add('book');
-  bookCard.innerHTML = `
-    <div class="title">${book.title}</div>
-    <div class="author">${book.author}</div>
-    <button class="remove-btn">Remove</button>
-    <hr>
-  `;
-  const removeBtn = bookCard.querySelector('.remove-btn');
-  removeBtn.addEventListener('click', () => removeBook(book));
-  return bookCard;
-};
-
-// Method to refresh the book collection
-const refreshBookCollection = () => {
-  booksCollectionTag.innerHTML = '';
-  books.forEach((book) => {
-    const bookCard = createBookCard(book);
-    booksCollectionTag.appendChild(bookCard);
-  });
-};
-
-// Method to remove the book from the collection
-const removeBook = (book) => {
-  books = books.filter((b) => b !== book);
-  updateLocalStorage();
-  refreshBookCollection();
-};
-
-// Method to update local storage with the current book collection
-const updateLocalStorage = () => {
+// Function to save the books collection to localStorage
+const saveBooksToStorage = () => {
   localStorage.setItem('books', JSON.stringify(books));
 };
 
-// Method to clear form inputs after adding a book
-const clearFormInputs = () => {
-  titleInput.value = '';
-  authorTag.value = '';
+// Function to retrieve the books collection from localStorage
+const retrieveBooksFromStorage = () => {
+  const storedBooks = localStorage.getItem('books');
+  books = storedBooks ? JSON.parse(storedBooks) : [];
 };
 
-// Method to add book to the collection
-const addBook = (event) => {
-  event.preventDefault();
+// Function to add a new book to the collection
+const addBook = (title, author) => {
   const book = {
-    title: titleInput.value,
-    author: authorTag.value,
+    title,
+    author,
   };
   books.push(book);
-  updateLocalStorage();
-  refreshBookCollection();
-  clearFormInputs();
+  saveBooksToStorage();
 };
 
-// Populate the book collection when the page is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  refreshBookCollection();
+// Function to remove a book from the collection
+const removeBook = (title) => {
+  books = books.filter((book) => book.title !== title);
+  saveBooksToStorage();
+};
+
+// Function to display all books in the collection
+const displayBooks = () => {
+  const booksContainer = document.querySelector('.books-collection');
+  booksContainer.innerHTML = '';
+
+  books.forEach((book) => {
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('book-card');
+    bookCard.innerHTML = `
+      <div>${book.title}</div>
+      <div>Author: ${book.author}</div>
+      <button class="remove-btn">Remove</button>
+      <hr>
+    `;
+
+    const removeButton = bookCard.querySelector('.remove-btn');
+    removeButton.addEventListener('click', () => {
+      removeBook(book.title);
+      bookCard.remove();
+    });
+
+    booksContainer.appendChild(bookCard);
+  });
+};
+
+// Form submit event handler
+const form = document.querySelector('.form');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const titleInput = document.querySelector('.title-tag');
+  const authorInput = document.querySelector('.author-tag');
+
+  const title = titleInput.value;
+  const author = authorInput.value;
+
+  addBook(title, author);
+  displayBooks();
+
+  titleInput.value = '';
+  authorInput.value = '';
 });
 
-// Handle the submit event
-formTag.addEventListener('submit', addBook);
+// Retrieve books collection from localStorage on page load
+retrieveBooksFromStorage();
+
+// Initial display of books
+displayBooks();
