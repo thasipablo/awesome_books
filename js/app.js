@@ -16,6 +16,10 @@ class Book {
     books.push(this);
     saveBooksToStorage();
   }
+  removeBook(title) {
+    books = books.filter((book) => book.title !== title);
+    saveBooksToStorage();
+  }
 }
 
 // Function to retrieve the books collection from localStorage
@@ -47,7 +51,7 @@ const displayBooks = () => {
 
     const removeButton = bookCard.querySelector(".remove-btn");
     removeButton.addEventListener("click", () => {
-      removeBook(book.title);
+      book.removeBook(book.title);
       bookCard.remove();
     });
 
