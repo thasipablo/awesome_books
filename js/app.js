@@ -2,23 +2,27 @@
 let books = [];
 
 // Function to save the books collection to localStorage
-const saveBooksToStorage = () => {
-  localStorage.setItem("books", JSON.stringify(books));
-};
 
 class Book {
   constructor(title, author) {
     this.title = title;
     this.author = author;
   }
+
+  saveBooksToStorage() {
+    localStorage.setItem("books", JSON.stringify(books));
+  };
+
   // Function to add a new book to the collection
   addBook() {
     books.push(this);
-    saveBooksToStorage();
+    this.saveBooksToStorage();
   }
+
+  // Function to remove a book from the collection
   removeBook(title) {
     books = books.filter((book) => book.title !== title);
-    saveBooksToStorage();
+    this.saveBooksToStorage();
   }
 }
 
@@ -26,12 +30,6 @@ class Book {
 const retrieveBooksFromStorage = () => {
   const storedBooks = localStorage.getItem("books");
   books = storedBooks ? JSON.parse(storedBooks) : [];
-};
-
-// Function to remove a book from the collection
-const removeBook = (title) => {
-  books = books.filter((book) => book.title !== title);
-  saveBooksToStorage();
 };
 
 // Function to display all books in the collection
