@@ -9,8 +9,8 @@ class Book {
   
   // Function to save the books collection to localStorage
   static saveBooksToStorage() {
-    localStorage.setItem("books", JSON.stringify(books));
-  };
+    localStorage.setItem('books', JSON.stringify(books));
+  }
 
   // Function to add a new book to the collection
   addBook() {
@@ -27,17 +27,17 @@ class Book {
 
 // Function to retrieve the books collection from localStorage
 const retrieveBooksFromStorage = () => {
-  const storedBooks = localStorage.getItem("books");
+  const storedBooks = localStorage.getItem('books');
   books = storedBooks ? JSON.parse(storedBooks) : [];
 };
 
 // Function to display all books in the collection
 const displayBooks = () => {
-  const booksContainer = document.querySelector(".books-collection");
-  booksContainer.innerHTML = "";
+  const booksContainer = document.querySelector('.books-collection');
+  booksContainer.innerHTML = '';
 
   books.forEach((book) => {
-    const bookCard = document.createElement("div");
+    const bookCard = document.createElement('div');
     const titleElement = document.createElement('p');
     titleElement.textContent = `"${book.title}" by`;
     bookCard.appendChild(titleElement);
@@ -59,12 +59,12 @@ const displayBooks = () => {
 };
 
 // Form submit event handler
-const form = document.querySelector(".form");
-form.addEventListener("submit", (e) => {
+const form = document.querySelector('.form');
+form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const titleInput = document.querySelector(".title-tag");
-  const authorInput = document.querySelector(".author-tag");
+  const titleInput = document.querySelector('.title-tag');
+  const authorInput = document.querySelector('.author-tag');
 
   const title = titleInput.value;
   const author = authorInput.value;
@@ -74,8 +74,8 @@ form.addEventListener("submit", (e) => {
 
   displayBooks();
 
-  titleInput.value = "";
-  authorInput.value = "";
+  titleInput.value = '';
+  authorInput.value = '';
 });
 
 // Retrieve books collection from localStorage on page load
