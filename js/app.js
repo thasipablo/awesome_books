@@ -11,6 +11,7 @@ class Book {
     this.title = title;
     this.author = author;
   }
+  // Function to add a new book to the collection
   addBook() {
     books.push(this);
     saveBooksToStorage();
@@ -21,13 +22,6 @@ class Book {
 const retrieveBooksFromStorage = () => {
   const storedBooks = localStorage.getItem("books");
   books = storedBooks ? JSON.parse(storedBooks) : [];
-};
-
-// Function to add a new book to the collection
-const addBook = (title, author) => {
-  const book = new Book(title, author);
-  books.push(book);
-  saveBooksToStorage();
 };
 
 // Function to remove a book from the collection
