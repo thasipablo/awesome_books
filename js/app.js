@@ -6,7 +6,6 @@ class Book {
     this.title = title;
     this.author = author;
   }
-  
   // Function to save the books collection to localStorage
   static saveBooksToStorage() {
     localStorage.setItem('books', JSON.stringify(books));
