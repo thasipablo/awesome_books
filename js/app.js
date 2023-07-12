@@ -3,21 +3,29 @@ let books = [];
 
 // Function to save the books collection to localStorage
 const saveBooksToStorage = () => {
-  localStorage.setItem('books', JSON.stringify(books));
+  localStorage.setItem("books", JSON.stringify(books));
 };
+
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+  addBook() {
+    books.push(this);
+    saveBooksToStorage();
+  }
+}
 
 // Function to retrieve the books collection from localStorage
 const retrieveBooksFromStorage = () => {
-  const storedBooks = localStorage.getItem('books');
+  const storedBooks = localStorage.getItem("books");
   books = storedBooks ? JSON.parse(storedBooks) : [];
 };
 
 // Function to add a new book to the collection
 const addBook = (title, author) => {
-  const book = {
-    title,
-    author,
-  };
+  const book = new Book(title, author);
   books.push(book);
   saveBooksToStorage();
 };
@@ -30,12 +38,12 @@ const removeBook = (title) => {
 
 // Function to display all books in the collection
 const displayBooks = () => {
-  const booksContainer = document.querySelector('.books-collection');
-  booksContainer.innerHTML = '';
+  const booksContainer = document.querySelector(".books-collection");
+  booksContainer.innerHTML = "";
 
   books.forEach((book) => {
-    const bookCard = document.createElement('div');
-    bookCard.classList.add('book-card');
+    const bookCard = document.createElement("div");
+    bookCard.classList.add("book-card");
     bookCard.innerHTML = `
       <div>${book.title}</div>
       <div>Author: ${book.author}</div>
@@ -43,8 +51,8 @@ const displayBooks = () => {
       <hr>
     `;
 
-    const removeButton = bookCard.querySelector('.remove-btn');
-    removeButton.addEventListener('click', () => {
+    const removeButton = bookCard.querySelector(".remove-btn");
+    removeButton.addEventListener("click", () => {
       removeBook(book.title);
       bookCard.remove();
     });
@@ -54,21 +62,23 @@ const displayBooks = () => {
 };
 
 // Form submit event handler
-const form = document.querySelector('.form');
-form.addEventListener('submit', (e) => {
+const form = document.querySelector(".form");
+form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const titleInput = document.querySelector('.title-tag');
-  const authorInput = document.querySelector('.author-tag');
+  const titleInput = document.querySelector(".title-tag");
+  const authorInput = document.querySelector(".author-tag");
 
   const title = titleInput.value;
   const author = authorInput.value;
 
-  addBook(title, author);
+  const book = new Book(title, author);
+  book.addBook();
+
   displayBooks();
 
-  titleInput.value = '';
-  authorInput.value = '';
+  titleInput.value = "";
+  authorInput.value = "";
 });
 
 // Retrieve books collection from localStorage on page load
