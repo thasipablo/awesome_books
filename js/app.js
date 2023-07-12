@@ -8,20 +8,20 @@ class Book {
   }
   
   // Function to save the books collection to localStorage
-  saveBooksToStorage() {
+  static saveBooksToStorage() {
     localStorage.setItem("books", JSON.stringify(books));
   };
 
   // Function to add a new book to the collection
   addBook() {
     books.push(this);
-    this.saveBooksToStorage();
+    Book.saveBooksToStorage();
   }
 
   // Function to remove a book from the collection
-  removeBook(title) {
+  static removeBook(title) {
     books = books.filter((book) => book.title !== title);
-    this.saveBooksToStorage();
+    Book.saveBooksToStorage();
   }
 }
 
@@ -49,7 +49,7 @@ const displayBooks = () => {
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.addEventListener('click', () => {
-      book.removeBook(book.title);
+      Book.removeBook(book.title);
       bookCard.remove();
     });
     bookCard.appendChild(removeButton);
