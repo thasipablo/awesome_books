@@ -1,3 +1,118 @@
 body {
-  scroll-behavior: smooth;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-container {
+  width: 75%;
+  margin: auto;
+}
+
+.main-title {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 60px;
+}
+
+.book-list {
+  border: 5px solid black;
+  padding: 10px;
+  margin: 20px 0;
+  max-height: 40vh;
+  overflow-y: auto;
+}
+
+.book-list div {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: 20px; 
+  font-weight: normal;
+}
+
+.book-list div:nth-child(even) {
+  background-color: lightgray;
+  height: 45px;
+  text-align: start;
+  width: 100%;
+}
+
+.book-list div:nth-child(odd) {
+  background-color: white;
+  height: 45px;
+  text-align: start;
+  width: 100%;
+}  
+
+.book-list p {
+  display: inline;
+}
+
+.book-list button {
+  margin-left: auto;
+  border: 4px solid black;
+  border-radius: 10px;
+  background-color: #fff;
+  font-size: 20px; 
+  font-weight: bold;
+  height: 40px;
+  box-shadow: 2px 2px 2px gray;
+}
+
+.secondary-title {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 55px;
+}
+
+.book-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.book-form input {
+  margin: 10px 0;
+  border: 5px solid black;
+  padding: 5px;
+  width: 30vw;
+  height: 3vh;
+  font-size: 20px; 
+  font-weight: bold;
+}
+
+.book-form ::placeholder {
+  font-size: 20px; 
+  font-weight: bold;
+}
+
+.add-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid black;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  box-shadow: 2px 2px 2px gray;
+  width: 6.6vw;
+  height: 5vh;
+  align-self: center;
+  font-size: 20px; 
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: 22vw;
+  background-color: #fff;
+}
+
+hr {
+  width: 20%;
+  margin: 30px auto;
+  border: none;
+  border-top: 3px solid black; 
 }

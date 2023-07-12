@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,19 @@
   <script src="js/app.js" defer></script>
   <title>Awesome books</title>
 </head>
+
 <body>
-  <h1>Awesome books</h1>
-  <div class="books-collection"></div>
-  <form class="form">
-    <p>
-      <input type="text" placeholder="Title" class="title-tag">
-    </p>
-    <p>
-      <input type="text" placeholder="Author" class="author-tag">
-    </p>
-    <input type="submit" value="Add">
-  </form>
+  <div id="main-container" class="main-container">
+    <h1 class="main-title">All awesome books</h1>
+    <div class="books-collection book-list"></div>
+    <hr>
+    <h2 class="secondary-title">Add a new book</h2>
+    <form class="form book-form">
+      <input type="text" placeholder="Title" class="title-tag" required>
+      <input type="text" placeholder="Author" class="author-tag" required>
+      <button type="submit" class="add-button">Add</button>
+    </form>
+  </div>
 </body>
+
 </html>

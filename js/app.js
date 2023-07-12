@@ -38,19 +38,21 @@ const displayBooks = () => {
 
   books.forEach((book) => {
     const bookCard = document.createElement("div");
-    bookCard.classList.add("book-card");
-    bookCard.innerHTML = `
-      <div>${book.title}</div>
-      <div>Author: ${book.author}</div>
-      <button class="remove-btn">Remove</button>
-      <hr>
-    `;
+    const titleElement = document.createElement('p');
+    titleElement.textContent = `"${book.title}" by`;
+    bookCard.appendChild(titleElement);
 
-    const removeButton = bookCard.querySelector(".remove-btn");
-    removeButton.addEventListener("click", () => {
+    const authorElement = document.createElement('span');
+    authorElement.textContent = ` ${book.author}`; // Notice the space before ${book.author}
+    titleElement.appendChild(authorElement);
+
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener('click', () => {
       book.removeBook(book.title);
       bookCard.remove();
     });
+    bookCard.appendChild(removeButton);
 
     booksContainer.appendChild(bookCard);
   });
