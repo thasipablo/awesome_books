@@ -1,14 +1,13 @@
 // Declare booksCollection as an empty array
 let books = [];
 
-// Function to save the books collection to localStorage
-
 class Book {
   constructor(title, author) {
     this.title = title;
     this.author = author;
   }
-
+  
+  // Function to save the books collection to localStorage
   saveBooksToStorage() {
     localStorage.setItem("books", JSON.stringify(books));
   };
