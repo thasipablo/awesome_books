@@ -10,17 +10,36 @@
 </head>
 
 <body>
+  <header class="header">
+    <div>
+      Awesome books
+    </div>
+    <nav class="nav-bar">
+      <button class="list">List</button>
+      <button class="new-book">Add new</button>
+      <button class="contact">Contact</button>
+    </nav>
+  </header>
   <div id="main-container" class="main-container">
-    <h1 class="main-title">All awesome books</h1>
-    <div class="books-collection book-list"></div>
-    <hr>
-    <h2 class="secondary-title">Add a new book</h2>
-    <form class="form book-form">
-      <input type="text" placeholder="Title" class="title-tag" required>
-      <input type="text" placeholder="Author" class="author-tag" required>
-      <button type="submit" class="add-button">Add</button>
-    </form>
+    <section class="books-collection-container">
+      <h1 class="main-title">All awesome books</h1>
+      <div class="books-collection book-list"></div>
+    </section>
+    <section class="new-book-form">
+      <h2 class="secondary-title">Add a new book</h2>
+      <form class="form book-form">
+        <input type="text" placeholder="Title" class="title-tag" required>
+        <input type="text" placeholder="Author" class="author-tag" required>
+        <button type="submit" class="add-button">Add</button>
+      </form>
+    </section>
+    <section class="contact-information">
+      <h1 class="main-title">Contact information</h1>
+    </section>
   </div>
+  <footer>
+    <p>© 2023 Awesome Books. All rights reserved.</p>
+  </footer>
 </body>
 
 </html>

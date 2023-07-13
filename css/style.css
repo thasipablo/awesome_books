@@ -116,3 +116,9 @@ hr {
   border: none;
   border-top: 3px solid black;
 }
+
+/* Add your custom styles here */
+.new-book-form,
+.contact-information {
+  display: none;
+}
