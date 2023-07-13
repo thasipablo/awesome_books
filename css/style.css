@@ -7,9 +7,58 @@ body {
   align-items: center;
 }
 
+header {
+  border: 5px solid black;
+  padding: 20px;
+  margin: 0;
+  margin-top: 1vh;
+  width: 90%;
+  height: 4vh;
+  font-size: 30px;
+  position: fixed;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-title {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.nav-link {
+  font-size: 30px;
+  font-style: normal;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: bolder;
+}
+
+.separator {
+  height: auto;
+  font-weight: bolder;
+}
+
 .main-container {
-  width: 75%;
+  width: 90%;
   margin: auto;
+  margin-top: 16vh;
 }
 
 .main-title {
@@ -18,7 +67,7 @@ body {
   font-size: 60px;
 }
 
-.book-list {
+.books-collection {
   border: 5px solid black;
   padding: 10px;
   margin: 20px 0;
@@ -26,7 +75,7 @@ body {
   overflow-y: auto;
 }
 
-.book-list div {
+.books-collection div {
   display: flex;
   align-items: center;
   justify-content: start;
@@ -34,25 +83,25 @@ body {
   font-weight: normal;
 }
 
-.book-list div:nth-child(even) {
+.books-collection div:nth-child(even) {
   background-color: lightgray;
   height: 45px;
   text-align: start;
   width: 100%;
 }
 
-.book-list div:nth-child(odd) {
+.books-collection div:nth-child(odd) {
   background-color: white;
   height: 45px;
   text-align: start;
   width: 100%;
 }
 
-.book-list p {
+.books-collection p {
   display: inline;
 }
 
-.book-list button {
+.books-collection button {
   margin-left: auto;
   border: 4px solid black;
   border-radius: 10px;
@@ -61,6 +110,13 @@ body {
   font-weight: bold;
   height: 40px;
   box-shadow: 2px 2px 2px gray;
+}
+
+.second-container {
+  width: 90%;
+  margin: auto;
+  margin-top: 16vh;
+  font-size: 60px;
 }
 
 .secondary-title {
@@ -80,7 +136,7 @@ body {
   margin: 10px 0;
   border: 5px solid black;
   padding: 5px;
-  width: 30vw;
+  width: 40vw;
   height: 3vh;
   font-size: 20px;
   font-weight: bold;
@@ -103,16 +159,58 @@ body {
   width: 6.6vw;
   height: 5vh;
   align-self: center;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
   margin-left: auto;
-  margin-right: 22vw;
+  margin-right: 24.5vw;
   background-color: #fff;
 }
 
-hr {
-  width: 20%;
-  margin: 5vh auto;
-  border: none;
-  border-top: 3px solid black;
+.contact-info {
+  width: 90%;
+  height: 60%;
+  margin: auto;
+  margin-top: 16vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.contact-info-content {
+  text-align: start;
+  line-height: 1.5;
+  width: 80%; /* Adjust this value as per your needs */
+  margin-left: 20vw;
+}
+
+.contact-info-content h1 {
+  text-align: center;
+  width: 100%;
+  margin-left: -10vw;
+  font-size: 60px;
+  margin-top: 30px;
+}
+
+footer {
+  border: 5px solid black;
+  padding: 20px;
+  margin: 0;
+  width: 90%;
+  height: 4vh;
+  font-size: 30px;
+  font-weight: bolder;
+  position: fixed;
+  bottom: 0;
+  left: 5%;
+  right: 5%;
+  margin-bottom: 1vh;
+  display: flex;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
 }
